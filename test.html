@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Пример Accelerometer API</title>
+</head>
+<body>
+	<div id="msg"></div>
+<script>		
+const msgElement = document.getElementById('msg');
+
+// Проверяем поддержку Accelerometer API в мобильных браузерах
+if ('Accelerometer' in window && typeof window.Accelerometer === 'function' )
+{
+	msgElement.innerHTML += 'Accelerometer API поддерживается.<br>';
+	
+	// Создаем экземпляр объекта акселерометра
+	const accelerometer = new Accelerometer({ frequency: 60 });
+
+	// Обработчик события изменения данных акселерометра
+	accelerometer.addEventListener('reading', () => {
+		
+		// Получаем значения ускорения по осям X, Y и Z
+		const accelerationX = accelerometer.x;
+		const accelerationY = accelerometer.y;
+		const accelerationZ = accelerometer.z;
+
+		// Выводим данные в блок
+		msgElement.innerHTML += `X: ${accelerationX}, Y: ${accelerationY}, Z: ${accelerationZ}<br>`;
+	});
+
+	// Обработчик события ошибки акселерометра
+	accelerometer.addEventListener('error', (event) => {		
+		msgElement.innerHTML += `Ошибка акселерометра: ${event.error.name}<br>`;
+	});
+
+	// Начинаем чтение данных акселерометра
+	accelerometer.start();
+} 
+else 
+{	
+	msgElement.innerHTML += 'Accelerometer API не поддерживается в этом браузере или устройстве.<br>';
+	msgElement.innerHTML += 'Попробуйте Chrome for Android.';
+}
+</script>
+</body>
+</html>
