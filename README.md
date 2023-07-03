@@ -1,7 +1,10 @@
 <h1>Доступ к данным акселерометра устройства с помощью Accelerometer API</h1>
-<p>Accelerometer API позволяет веб-сайтам получать данные акселерометра и использовать их для различных целей.</p>
-<p>Например, для определения ориентации устройства, обнаружения движений, создания интерактивных игр или прокрутки контента на веб-странице на основе движений пользователя.</p>
-<pre>
+Accelerometer API позволяет веб-сайтам получать данные акселерометра и использовать их для различных целей.
+Например, для определения ориентации устройства, обнаружения движений, создания интерактивных игр или прокрутки контента на веб-странице на основе движений пользователя.
+
+![Accelerometer](https://www.w3.org/TR/accelerometer/images/accelerometer_coordinate_system.svg)
+
+```
 if ('Accelerometer' in window && typeof window.Accelerometer === 'function' )
 {
 	const accelerometer = new Accelerometer({ frequency: 60 });
@@ -18,11 +21,14 @@ if ('Accelerometer' in window && typeof window.Accelerometer === 'function' )
 	 });
   	accelerometer.start();
 }
-</pre>
-<p>На текущий момент <a href="https://caniuse.com/?search=Accelerometer">Accelerometer API поддерживается</a> в некоторых мобильных браузерах:</p>
-<ul>
-	<li><p>Chrome для Android </p></li>
-	<li><p>Firefox для Android </p></li>
-	<li><p>UC Browser for Android </p></li>
-</ul>
-<p><a href="https://developer.donnoval.ru/accelerometer-api/">https://developer.donnoval.ru/accelerometer-api/</a></p>
+```
+
+## Поддержка браузерами
+На текущий момент <a href="https://caniuse.com/?search=Accelerometer">Accelerometer API поддерживается</a> в некоторых мобильных браузерах:
+- Chrome для Android
+- Firefox для Android
+- UC Browser for Android
+
+<div align="center">
+	<a href="https://developer.donnoval.ru/accelerometer-api/">https://developer.donnoval.ru/accelerometer-api/</a>
+</div>
